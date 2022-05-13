@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GitHubApiApp</string>
+    <string name="no_search_result_state">Unfortunately, I couldn\'t find anything.</string>
+</resources>
