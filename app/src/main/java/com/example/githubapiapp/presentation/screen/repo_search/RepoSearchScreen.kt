@@ -13,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.githubapiapp.R
 import com.example.githubapiapp.core.presentation.components.NoResultStateCard
+import com.example.githubapiapp.presentation.screen.repo_search.components.RepoListItem
 import com.example.githubapiapp.presentation.screen.repo_search.components.SelectSorting
 import com.example.githubapiapp.presentation.util.navigation.Screen
 import org.koin.androidx.compose.getViewModel
@@ -89,49 +89,16 @@ fun RepoSearchScreen(
                     if (position >= state.searchResult.value.size - 5 && !state.endReached.value && !state.isLoading.value) {
                         viewModel.onEvent(RepoSearchEvent.LoadNextItems)
                     }
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 4.dp, vertical = 2.dp)
-                            .clip(RoundedCornerShape(4.dp))
-                            .background(MaterialTheme.colors.primaryVariant)
-                            .clickable {
-                                navController.navigate(route = Screen.RepoDetailsScreen.route)
-                            }
-                    ) {
-                        Column {
-                            Text(
-                                modifier = Modifier.padding(4.dp),
-                                text = "name: " + state.searchResult.value[position].name,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                modifier = Modifier.padding(4.dp),
-                                text = "forks: " + state.searchResult.value[position].forksCount,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                modifier = Modifier.padding(4.dp),
-                                text = "stars: " + state.searchResult.value[position].stargazersCount,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                modifier = Modifier.padding(4.dp),
-                                text = "updatedAt: " + state.searchResult.value[position].updatedAt,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                            Text(
-                                modifier = Modifier.padding(4.dp),
-                                text = "language: " + state.searchResult.value[position].language,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
+                    RepoListItem(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 4.dp, vertical = 2.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(MaterialTheme.colors.primaryVariant)
+                        .clickable {
+                            navController.navigate(route = Screen.RepoDetailsScreen.route)
+                        },
+                        repoUi = state.searchResult.value[position]
+                    )
                 }
                 item {
                     if (state.isLoading.value) {
