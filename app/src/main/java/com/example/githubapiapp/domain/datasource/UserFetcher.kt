@@ -1,4 +1,4 @@
-package com.example.githubapiapp.domain.data_source
+package com.example.githubapiapp.domain.datasource
 
 import com.example.githubapiapp.domain.model.dto.FullUserDto
 import retrofit2.Response

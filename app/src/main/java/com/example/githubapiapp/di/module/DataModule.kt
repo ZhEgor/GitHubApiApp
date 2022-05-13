@@ -1,10 +1,10 @@
 package com.example.githubapiapp.di.module
 
-import com.example.githubapiapp.data.data_source.retrofit.RepoRetrofitDataSource
-import com.example.githubapiapp.data.data_source.retrofit.UserRetrofitDataSource
-import com.example.githubapiapp.domain.data_source.RepoFetcher
-import com.example.githubapiapp.domain.data_source.UserFetcher
-import com.example.githubapiapp.domain.data_source.retrofit.api.ApiGitHub
+import com.example.githubapiapp.data.datasource.retrofit.RepoRetrofitDataSource
+import com.example.githubapiapp.data.datasource.retrofit.UserRetrofitDataSource
+import com.example.githubapiapp.domain.datasource.RepoFetcher
+import com.example.githubapiapp.domain.datasource.UserFetcher
+import com.example.githubapiapp.domain.datasource.retrofit.api.ApiGitHub
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

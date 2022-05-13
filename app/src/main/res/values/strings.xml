@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">GitHubApiApp</string>
     <string name="no_search_result_state">Unfortunately, I couldn\'t find anything.</string>
+    <string name="thumbnail_avatar_description">thumbnail avatar</string>
+    <string name="number_of_watchers_description">number of watchers</string>
+    <string name="number_of_forks_description">number of forks</string>
+    <string name="number_of_issues_description">number of issues</string>
+    <string name="language_description">language</string>
+    <string name="remove_text_description">remove text</string>
+    <string name="search_by_text_description">search by text</string>
+    <string name="no_search_result_description">no search result</string>
+    <string name="sorting_order_description">sorting order</string>
+    <string name="search_label">Search and query field</string>
+    <string name="wait_until_it_loads_description">wait until it loads</string>
+    <string name="wait_until_it_loads_state">wait until it loads</string>
 </resources>

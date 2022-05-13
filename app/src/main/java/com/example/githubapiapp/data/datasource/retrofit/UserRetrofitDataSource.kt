@@ -1,7 +1,7 @@
-package com.example.githubapiapp.data.data_source.retrofit
+package com.example.githubapiapp.data.datasource.retrofit
 
-import com.example.githubapiapp.domain.data_source.UserFetcher
-import com.example.githubapiapp.domain.data_source.retrofit.api.ApiGitHub
+import com.example.githubapiapp.domain.datasource.UserFetcher
+import com.example.githubapiapp.domain.datasource.retrofit.api.ApiGitHub
 import com.example.githubapiapp.domain.model.dto.FullUserDto
 import retrofit2.Response
 

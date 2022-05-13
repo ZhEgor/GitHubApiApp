@@ -32,6 +32,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
         jvmTarget = '1.8'
     }
     buildFeatures {
@@ -89,5 +90,6 @@ dependencies {
 
     // LoadImageViaUrl
     implementation "io.coil-kt:coil-compose:2.0.0-rc01"
+
 
 }

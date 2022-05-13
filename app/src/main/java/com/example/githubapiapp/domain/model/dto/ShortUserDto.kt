@@ -6,6 +6,8 @@ import com.google.gson.annotations.SerializedName
 data class ShortUserDto(
     @SerializedName("id")
     val id: Int,
+    @SerializedName("login")
+    val login: String,
     @SerializedName("avatar_url")
     val avatarUrl: String,
     @SerializedName("url")
@@ -18,6 +20,7 @@ data class ShortUserDto(
         id = id,
         avatarUrl = avatarUrl,
         url = url,
-        htmlUrl = htmlUrl
+        htmlUrl = htmlUrl,
+        login = login,
     )
 }

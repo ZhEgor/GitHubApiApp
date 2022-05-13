@@ -1,12 +1,15 @@
 package com.example.githubapiapp.presentation.util.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.githubapiapp.presentation.screen.repo_details.RepoDetailsScreen
-import com.example.githubapiapp.presentation.screen.repo_search.RepoSearchScreen
+import androidx.navigation.navArgument
+import com.example.githubapiapp.presentation.screen.repodetails.RepoDetailsScreen
+import com.example.githubapiapp.presentation.screen.reposearch.RepoSearchScreen
 import org.koin.androidx.compose.getViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun Navigation() {
@@ -20,26 +23,31 @@ fun Navigation() {
                 navController = navController
             )
         }
-        composable(route = Screen.RepoDetailsScreen.route) {
+        composable(
+            route = Screen.RepoDetailsScreen.route + "/{repoUrl}/{userUrl}",
+            arguments = listOf(
+                navArgument("repoUrl") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                    nullable = false
+                },
+                navArgument("userUrl") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                    nullable = false
+                }
+            )
+        ) { entry ->
             RepoDetailsScreen(
-                navController = navController
+                viewModel = getViewModel(
+                    parameters = {
+                        parametersOf(
+                            entry.arguments?.getString("repoUrl"),
+                            entry.arguments?.getString("userUrl")
+                        )
+                    }
+                )
             )
         }
-
-//        }        composable(
-//            route = Screen.WordListScreen.route + "/{name}",
-//            arguments = listOf(
-//                navArgument("categoryId") {
-//                    type = NavType.StringType
-//                }
-//            )) { entry ->
-//            entry.arguments?.getString("categoryId")?.let { categoryId ->
-//                WordListScreen(
-//                    categoryId = categoryId,
-//                    navController = navController,
-//                    viewModel = getViewModel()
-//                )
-//            }
-//        }
     }
 }

@@ -10,13 +10,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.githubapiapp.R
 
 @Composable
-fun NoResultStateCard(modifier: Modifier = Modifier, text: String = "") {
+fun StateCard(
+    modifier: Modifier = Modifier,
+    text: String,
+    painter: Painter,
+    contentDescription: String
+) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -27,8 +31,8 @@ fun NoResultStateCard(modifier: Modifier = Modifier, text: String = "") {
                 width = 150.dp,
                 height = 100.dp
             ),
-            painter = painterResource(id = R.drawable.ic_no_search_result),
-            contentDescription = "no search result",
+            painter = painter,
+            contentDescription = contentDescription,
             tint = Color.Unspecified
         )
         Text(

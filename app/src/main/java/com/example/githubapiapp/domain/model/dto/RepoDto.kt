@@ -10,6 +10,8 @@ data class RepoDto(
     val name: String,
     @SerializedName("html_url")
     val htmlUrl: String,
+    @SerializedName("url")
+    val url: String,
     @SerializedName("forks_count")
     val forksCount: Int,
     @SerializedName("watchers_count")
@@ -30,12 +32,13 @@ data class RepoDto(
         id = id,
         name = name,
         htmlUrl = htmlUrl,
+        url = url,
         forksCount = forksCount,
         watchersCount = watchersCount,
         stargazersCount = stargazersCount,
         openIssuesCount = openIssuesCount,
         updatedAt = updatedAt,
         language = language ?: "",
-        shortUserUi = shortUserDto.toUi()
+        owner = shortUserDto.toUi()
     )
 }

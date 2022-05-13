@@ -1,17 +1,20 @@
 package com.example.githubapiapp.di.module
 
-import com.example.githubapiapp.presentation.screen.repo_details.RepoDetailsViewModel
-import com.example.githubapiapp.presentation.screen.repo_details.RepoDetailsViewModelImpl
-import com.example.githubapiapp.presentation.screen.repo_search.RepoSearchViewModel
-import com.example.githubapiapp.presentation.screen.repo_search.RepoSearchViewModelImpl
+import com.example.githubapiapp.presentation.screen.repodetails.RepoDetailsViewModel
+import com.example.githubapiapp.presentation.screen.repodetails.RepoDetailsViewModelImpl
+import com.example.githubapiapp.presentation.screen.reposearch.RepoSearchViewModel
+import com.example.githubapiapp.presentation.screen.reposearch.RepoSearchViewModelImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelsModule = module {
 
-
     viewModel<RepoSearchViewModel> { RepoSearchViewModelImpl(get()) }
-    viewModel<RepoDetailsViewModel> { RepoDetailsViewModelImpl(get()) }
-//    viewModel<WordListViewModel> { parameters -> WordListViewModelImpl(category = parameters.get(), get()) }
-
+    viewModel<RepoDetailsViewModel> { params ->
+        RepoDetailsViewModelImpl(
+            get(), get(),
+            repoUrl = params[0],
+            userUrl = params[1]
+        )
+    }
 }

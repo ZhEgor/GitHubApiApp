@@ -13,7 +13,7 @@ class UrlRequest {
     var sorting: SortBy = SortBy.STARS
     var query: String = ""
     var page: Int = 1
-    var per_page: Int = 30
+    var per_page: Int = 15
 
     private fun buildPayload() = BASE_PATH +
             QUERY_FIELD_NAME + query +

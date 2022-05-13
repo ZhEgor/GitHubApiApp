@@ -1,8 +1,9 @@
-package com.example.githubapiapp.data.data_source.retrofit
+package com.example.githubapiapp.data.datasource.retrofit
 
-import com.example.githubapiapp.domain.data_source.RepoFetcher
-import com.example.githubapiapp.domain.data_source.retrofit.api.ApiGitHub
+import com.example.githubapiapp.domain.datasource.RepoFetcher
+import com.example.githubapiapp.domain.datasource.retrofit.api.ApiGitHub
 import com.example.githubapiapp.domain.model.dto.GitHubListResponseDto
+import com.example.githubapiapp.domain.model.dto.RepoDto
 import com.example.githubapiapp.domain.model.dto.UrlRequest
 import retrofit2.Response
 
@@ -12,5 +13,9 @@ class RepoRetrofitDataSource(
 
     override suspend fun fetchReposByUrl(urlRequest: UrlRequest): Response<GitHubListResponseDto> {
         return apiGitHub.fetchReposByUrl(urlRequest.url)
+    }
+
+    override suspend fun fetchRepoByUrl(url: String): Response<RepoDto> {
+        return apiGitHub.fetchRepoByUrl(url)
     }
 }
