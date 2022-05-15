@@ -16,7 +16,11 @@ class DefaultPaginatorImpl<Key, Item>(
         if (isMakingRequest) return
         isMakingRequest = true
         onLoadUpdated(true)
-        val result = onRequest(currentKey)
+        val result = try {
+            onRequest(currentKey)
+        } catch (e: Exception) {
+            null
+        }
         isMakingRequest = false
         if (result != null) {
             currentKey = getNextKey(result)

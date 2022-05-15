@@ -34,7 +34,7 @@ class RepoDetailsViewModelImpl(
             }
             uiState.repoUi.value = deferredRepoUi.await()
             uiState.userUi.value = deferredUserUi.await()
-            uiState.hasLoaded.value = false
+            uiState.hasLoaded.value = true
         }
     }
 }

@@ -7,7 +7,7 @@ import com.example.githubapiapp.core.presentation.composableState.TextFieldState
 import com.example.githubapiapp.domain.model.dto.SortBy
 
 data class RepoSearchUiState(
-    val searchState: MutableState<TextFieldState> = mutableStateOf(TextFieldState(text = "git+language:python")),
+    val searchState: MutableState<TextFieldState> = mutableStateOf(TextFieldState()),
     val selectedSorting: MutableState<SortBy> = mutableStateOf(SortBy.STARS),
     val lazyColumnState: MutableState<LazyColumnState> = mutableStateOf(LazyColumnState())
 )

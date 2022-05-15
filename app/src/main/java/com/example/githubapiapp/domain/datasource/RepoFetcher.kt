@@ -7,6 +7,6 @@ import retrofit2.Response
 
 interface RepoFetcher {
 
-    suspend fun fetchReposByUrl(urlRequest: UrlRequest): Response<GitHubListResponseDto>
+    suspend fun fetchReposByUrl(url: String): Response<GitHubListResponseDto>
     suspend fun fetchRepoByUrl(url: String): Response<RepoDto>
 }

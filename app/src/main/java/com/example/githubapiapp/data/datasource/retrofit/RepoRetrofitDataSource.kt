@@ -11,8 +11,8 @@ class RepoRetrofitDataSource(
     private val apiGitHub: ApiGitHub
 ) : RepoFetcher {
 
-    override suspend fun fetchReposByUrl(urlRequest: UrlRequest): Response<GitHubListResponseDto> {
-        return apiGitHub.fetchReposByUrl(urlRequest.url)
+    override suspend fun fetchReposByUrl(url: String): Response<GitHubListResponseDto> {
+        return apiGitHub.fetchReposByUrl(url)
     }
 
     override suspend fun fetchRepoByUrl(url: String): Response<RepoDto> {

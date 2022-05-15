@@ -15,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
@@ -26,10 +25,12 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.githubapiapp.R
 import com.example.githubapiapp.domain.model.ui.RepoUi
+import com.example.githubapiapp.presentation.util.ext.setSizeInImageUrl
 
 @Composable
 fun RepoListItem(modifier: Modifier = Modifier, repoUi: RepoUi, onClick: (RepoUi) -> Unit) {
     val uriHandler = LocalUriHandler.current
+
     Box(modifier = modifier.clickable { onClick(repoUi) }) {
         Column(modifier = Modifier.padding(8.dp)) {
             Row {
@@ -51,22 +52,20 @@ fun RepoListItem(modifier: Modifier = Modifier, repoUi: RepoUi, onClick: (RepoUi
                     )
                 }
                 Image(
-                    // ToDo
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape)
                         .clickable {
-                            uriHandler.openUri(repoUi.owner.avatarUrl)
+                            uriHandler.openUri(repoUi.owner.htmlUrl)
                         },
                     painter = rememberAsyncImagePainter(
-                        model = repoUi.owner.avatarUrl,
-                        filterQuality = FilterQuality.None
+                        model = repoUi.owner.avatarUrl.setSizeInImageUrl(size = 30)
                     ),
                     contentDescription = stringResource(R.string.thumbnail_avatar_description),
                 )
             }
 
-            Row {
+            Row(modifier.padding(horizontal = 4.dp)) {
                 IconWithText(
                     modifier = Modifier.weight(1f),
                     text = repoUi.watchersCount.toString(),

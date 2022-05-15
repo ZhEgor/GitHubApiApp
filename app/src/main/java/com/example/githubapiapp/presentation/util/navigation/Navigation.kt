@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.githubapiapp.presentation.screen.repodetails.RepoDetailsScreen
 import com.example.githubapiapp.presentation.screen.reposearch.RepoSearchScreen
+import com.example.githubapiapp.presentation.util.ext.replaceFakeSlash
 import org.koin.androidx.compose.getViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -28,13 +29,9 @@ fun Navigation() {
             arguments = listOf(
                 navArgument("repoUrl") {
                     type = NavType.StringType
-                    defaultValue = ""
-                    nullable = false
                 },
                 navArgument("userUrl") {
                     type = NavType.StringType
-                    defaultValue = ""
-                    nullable = false
                 }
             )
         ) { entry ->
@@ -42,8 +39,8 @@ fun Navigation() {
                 viewModel = getViewModel(
                     parameters = {
                         parametersOf(
-                            entry.arguments?.getString("repoUrl"),
-                            entry.arguments?.getString("userUrl")
+                            entry.arguments?.getString("repoUrl")?.replaceFakeSlash(),
+                            entry.arguments?.getString("userUrl")?.replaceFakeSlash()
                         )
                     }
                 )

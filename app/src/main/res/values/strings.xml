@@ -2,6 +2,7 @@
     <string name="app_name">GitHubApiApp</string>
     <string name="no_search_result_state">Unfortunately, I couldn\'t find anything.</string>
     <string name="thumbnail_avatar_description">thumbnail avatar</string>
+    <string name="avatar_description">avatar</string>
     <string name="number_of_watchers_description">number of watchers</string>
     <string name="number_of_forks_description">number of forks</string>
     <string name="number_of_issues_description">number of issues</string>
@@ -13,4 +14,21 @@
     <string name="search_label">Search and query field</string>
     <string name="wait_until_it_loads_description">wait until it loads</string>
     <string name="wait_until_it_loads_state">wait until it loads</string>
+    <string name="following_count">following</string>
+    <string name="followers_count">followers</string>
+    <string name="followers_and_following_description">followers and following</string>
+    <string name="colon">:</string>
+    <string name="email_label">email</string>
+    <string name="repositories_label">repositories</string>
+    <string name="language_label">language</string>
+    <string name="last_modified_label">last modified</string>
+    <string name="date_of_creation_label">date of creation</string>
+    <string name="watchers_label">watchers</string>
+    <string name="stars_label">stars</string>
+    <string name="issues_label">issues</string>
+    <string name="forks_label">forks</string>
+    <string name="open_in_browser_description">open in browser</string>
+    <string name="error_state_description">error state</string>
+    <string name="error_state_text">Oh, something went wrong, try again</string>
+    <string name="try_again_button">Try again!</string>
 </resources>

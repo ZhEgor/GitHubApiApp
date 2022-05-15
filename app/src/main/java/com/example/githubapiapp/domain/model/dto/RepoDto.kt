@@ -22,6 +22,8 @@ data class RepoDto(
     val openIssuesCount: Int,
     @SerializedName("updated_at")
     val updatedAt: String,
+    @SerializedName("created_at")
+    val createdAt: String,
     @SerializedName("language")
     val language: String?,
     @SerializedName("owner")
@@ -37,6 +39,7 @@ data class RepoDto(
         watchersCount = watchersCount,
         stargazersCount = stargazersCount,
         openIssuesCount = openIssuesCount,
+        createdAt = createdAt,
         updatedAt = updatedAt,
         language = language ?: "",
         owner = shortUserDto.toUi()

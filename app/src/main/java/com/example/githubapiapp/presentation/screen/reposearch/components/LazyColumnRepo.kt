@@ -28,12 +28,22 @@ fun LazyColumnRepo(
     LazyColumn(
         modifier = modifier
     ) {
-        if (lazyColumnState.value.searchResult.isNotEmpty()) {
+        if (lazyColumnState.value.isSearching) {
+            items(6) {
+                ShimmeringRepoListItem(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 2.dp)
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(MaterialTheme.colors.primaryVariant),
+                )
+            }
+        } else if (lazyColumnState.value.searchResult.isNotEmpty()) {
             items(lazyColumnState.value.searchResult.size) { position ->
                 if (
                     position >= lazyColumnState.value.searchResult.size - 5 &&
                     !lazyColumnState.value.endReached &&
-                    !lazyColumnState.value.isLoading
+                    !lazyColumnState.value.isPaging
                 ) {
                     onPaging()
                 }
@@ -48,7 +58,7 @@ fun LazyColumnRepo(
                 )
             }
             item {
-                if (lazyColumnState.value.isLoading) {
+                if (lazyColumnState.value.isPaging) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()

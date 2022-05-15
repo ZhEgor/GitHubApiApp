@@ -10,6 +10,7 @@ data class RepoUi(
     val stargazersCount: Int,
     val openIssuesCount: Int,
     val updatedAt: String,
+    val createdAt: String,
     val language: String,
     val owner: ShortUserUi
 )

@@ -9,7 +9,7 @@ class FetchReposUseCase(
     private val repoFetcher: RepoFetcher
 ) {
 
-    suspend operator fun invoke(urlRequest: UrlRequest): List<RepoUi>? {
-        return repoFetcher.fetchReposByUrl(urlRequest).toUi().body()
+    suspend operator fun invoke(url: String): List<RepoUi>? {
+        return repoFetcher.fetchReposByUrl(url).toUi().body()
     }
 }

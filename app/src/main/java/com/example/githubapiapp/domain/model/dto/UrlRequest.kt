@@ -13,13 +13,13 @@ class UrlRequest {
     var sorting: SortBy = SortBy.STARS
     var query: String = ""
     var page: Int = 1
-    var per_page: Int = 15
+    var perPage: Int = 30
 
     private fun buildPayload() = BASE_PATH +
             QUERY_FIELD_NAME + query +
             DIVIDER + sorting.toUrl() +
             DIVIDER + PAGE_FIELD_NAME + page +
-            DIVIDER + PER_PAGE_FIELD_NAME + per_page
+            DIVIDER + PER_PAGE_FIELD_NAME + perPage
 
     companion object {
         const val BASE_PATH = "/search/repositories?"
