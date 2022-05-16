@@ -51,7 +51,7 @@ class RepoSearchViewModelImpl(
     )
 
     override fun search() {
-        if (urlRequest.query.isBlank()) return
+        if (uiState.searchState.value.text.isBlank()) return
         refreshUrlRequest()
         uiState.lazyColumnState.value = LazyColumnState(isSearching = true)
         paginator.reset()
